@@ -40,10 +40,6 @@
     const bar = document.createElement('div');
     bar.className = 'scroll-bar';
     document.body.appendChild(bar);
-
-    const hero = document.querySelector('.hero, .lp-hero');
-    const heroBody = hero && (hero.querySelector('.hero-grid') || hero.querySelector(':scope > .container'));
-    const galaxy = hero && hero.querySelector('.galaxy');
     const medias = Array.from(document.querySelectorAll('.fcard-media'));
     let ticking = false;
 
@@ -52,12 +48,6 @@
       const y = window.scrollY, vh = innerHeight;
       const max = document.documentElement.scrollHeight - vh;
       bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
-
-      if (hero && y < hero.offsetHeight + 80) {
-        const p = Math.min(1, y / hero.offsetHeight);
-        if (heroBody) { heroBody.style.transform = 'translate3d(0,' + (y * 0.14).toFixed(1) + 'px,0)'; heroBody.style.opacity = String(1 - p * 0.55); }
-        if (galaxy) galaxy.style.transform = 'translate3d(0,' + (y * 0.32).toFixed(1) + 'px,0)';
-      }
       for (const m of medias) {
         const r = m.getBoundingClientRect();
         if (r.bottom < -40 || r.top > vh + 40) continue;
