@@ -294,3 +294,40 @@ main > section.hero { background: #0a2f8f; color: #fff; border-bottom: 0; }
 .marquee-track span { transition: color 0.2s, transform 0.2s; } .marquee-track span:hover { color: var(--text); transform: translateY(-2px); }
 @media (max-width: 720px) { .fcard-media { height: 160px; } }
 @media (prefers-reduced-motion: reduce) { .fcard-media img, .big-ico, .page-hero::before, .page-hero::after { animation: none; } }
+
+/* ---------- scroll animations ---------- */
+[data-reveal='zoom']:not(.in) { transform: translateY(18px) scale(0.94); }
+[data-reveal='left']:not(.in) { transform: translateX(-32px); }
+[data-reveal='right']:not(.in) { transform: translateX(32px); }
+.fcard[data-reveal], .plan[data-reveal], .step-card[data-reveal] { transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s, border-color 0.2s; transition-delay: var(--d, 0s); }
+.scroll-bar { position: fixed; top: 0; left: 0; width: 100%; height: 3px; z-index: 210; background: #2f6bf2; transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
+.fcard-media img { position: relative; top: var(--py, 0px); }
+.hero-grid, .lp-hero > .container { will-change: transform, opacity; }
+
+/* ---------- navy hero: grid + glow (home and landing pages) ---------- */
+main > section.hero, main > section.lp-hero {
+  background:
+    radial-gradient(900px 520px at 88% -8%, rgba(37, 150, 255, 0.34), transparent 62%),
+    radial-gradient(760px 520px at -6% 108%, rgba(96, 78, 235, 0.30), transparent 62%),
+    linear-gradient(180deg, #050b1f 0%, #08163d 100%);
+  color: #fff;
+}
+.hero::before, .lp-hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(130, 170, 255, 0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(130, 170, 255, 0.10) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 75% at 50% 42%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse 80% 75% at 50% 42%, #000 20%, transparent 78%);
+}
+.hero .grad-text, .lp-hero .grad-text { color: #38d3f5; }
+.hero .btn-primary, .lp-hero .btn-primary { background: #2f7bf5; color: #fff; }
+.hero .btn-primary:hover, .lp-hero .btn-primary:hover { background: #4d92ff; }
+.lp-hero .tier-tabs button.on { color: #08163d; }
+.hero .hero-stats { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(130, 170, 255, 0.22); border-radius: 14px; gap: 0; }
+.hero .stat { padding: 16px 34px; } .hero .stat + .stat { border-left: 1px solid rgba(130, 170, 255, 0.22); }
+.hero .hl-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(130, 170, 255, 0.24); }
+.hero .hl-card:hover { background: rgba(255, 255, 255, 0.10); box-shadow: 0 16px 32px rgba(0, 10, 50, 0.45); }
+.hero .hl-ico { background: #2f7bf5; }
+.lp-hero .tier-card, .lp-hero .lp-stats { background: rgba(255, 255, 255, 0.06); border-color: rgba(130, 170, 255, 0.24); }
+@media (max-width: 720px) { .hero .hero-stats { width: 100%; } .hero .stat { padding: 14px 8px; flex: 1; } }
+.hero .galaxy, .lp-hero .galaxy { opacity: 0.72; }

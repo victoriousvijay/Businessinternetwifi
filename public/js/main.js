@@ -216,7 +216,7 @@
     if (reduced) return (el.textContent = fmt(end));
     const t0 = performance.now(), dur = 1800;
     (function tick(t) {
-      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+      const p = Math.max(0, Math.min(1, (t - t0) / dur)), e = 1 - Math.pow(1 - p, 4);
       el.textContent = fmt(end * e);
       if (p < 1) requestAnimationFrame(tick);
     })(t0);
