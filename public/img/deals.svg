@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+    <g transform="rotate(-16 200 120)"><path d="M110 64h132l58 56-58 56H110a12 12 0 0 1-12-12V76a12 12 0 0 1 12-12z" fill="#1a4fd6"/><circle cx="130" cy="120" r="10" fill="#dbe6ff"/>
+    <text x="196" y="138" font-family="Inter,Arial,sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle">$</text></g>
+    <circle cx="316" cy="62" r="30" fill="#fbbf24"/><text x="316" y="74" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#0d1b36" text-anchor="middle">%</text>
+    <circle cx="70" cy="190" r="10" fill="#b7c9f6"/><circle cx="96" cy="60" r="6" fill="#5b8cf5"/></svg>

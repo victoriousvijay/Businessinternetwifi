@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Advisory Leads | BusinessInternetWifi</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a4fd6'/%3E%3Cpath d='M12 27a28 28 0 0 1 40 0M19 35a18 18 0 0 1 26 0M26 43a8 8 0 0 1 12 0' stroke='white' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='51' r='3.5' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/landing.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <section class="page-hero" style="padding-bottom:0">
+    <div class="container">
+      <h1 style="font-size:clamp(36px,5vw,64px)">Advisory leads</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="gate form-card" id="gate">
+        <div class="lock" data-icon="lock"></div>
+        <h2>Administrative clearance required</h2>
+        <p>Enter the advisor authorization code to view customer submissions.</p>
+        <form id="gateForm" style="display:grid;gap:16px;text-align:left">
+          <div class="field"><label for="adminKey">Authorization code</label><input id="adminKey" type="password" autocomplete="current-password" required></div>
+          <p id="gateErr" style="color:var(--danger);font-size:14px;min-height:20px;margin:0"></p>
+          <button class="btn btn-primary btn-block" type="submit"><span class="spinner"></span><span class="btn-label">Verify credentials</span></button>
+        </form>
+        <p style="font:500 11px/1.5 var(--font-mono);letter-spacing:.06em;margin:22px 0 0">Strictly confidential</p>
+      </div>
+
+      <div id="dash" style="display:none">
+        <div class="notice" id="mailWarn" style="display:none"><b>Email delivery is not configured.</b> Enquiries are being saved here only. Add your SMTP settings and COMPANY_EMAIL to the .env file so each enquiry is also emailed to you.</div>
+        <div class="dash-stats"><div><b id="stTotal">0</b><span>Total enquiries</span></div><div><b id="stToday">0</b><span>Last 24 hours</span></div><div><b id="stWeek">0</b><span>Last 7 days</span></div></div>
+        <div class="dash-tools">
+          <div class="field"><input id="leadSearch" type="search" placeholder="Search name, email, ZIP, message…" aria-label="Search leads"></div>
+          <div style="display:flex;gap:10px"><button class="btn btn-ghost btn-sm" id="csvBtn">Export CSV</button><button class="btn btn-ghost btn-sm" id="logoutBtn">Lock</button></div>
+        </div>
+        <div class="table-wrap">
+          <table class="compare leads" style="min-width:900px">
+            <thead><tr><th>Received</th><th>Contact</th><th>Service / plan</th><th>Location</th><th>Message</th><th>Source</th></tr></thead>
+            <tbody id="leadRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="/js/site-config.js"></script>
+<script src="/js/cursor.js" defer></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+<script src="/js/forms.js"></script>
+</body>
+</html>

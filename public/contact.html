@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | BusinessInternetWifi</title>
+<meta name="description" content="Send a query to our advisory team. Every message is delivered straight to our inbox.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a4fd6'/%3E%3Cpath d='M12 27a28 28 0 0 1 40 0M19 35a18 18 0 0 1 26 0M26 43a8 8 0 0 1 12 0' stroke='white' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='51' r='3.5' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/landing.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Let's find your perfect connection</h1>
+      <p data-reveal>Questions about plans, coverage or business connectivity? Send us a message — it lands directly in our team's inbox.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="info-stack">
+        <div class="info-card" data-reveal="left"><div class="ico" data-icon="phone"></div><div><small>Call an advisor</small><a href="tel:" data-site-href="phoneHref:tel:" data-site="phone"></a></div></div>
+        <div class="info-card" data-reveal="left" style="--d:.08s"><div class="ico" data-icon="mail"></div><div><small>Email</small><a href="mailto:" data-site-href="email:mailto:" data-site="email"></a></div></div>
+        <div class="info-card" data-reveal="left" style="--d:.16s"><div class="ico" data-icon="pin"></div><div><small>Office</small><b><span data-site="legalName"></span></b><br><span style="color:var(--muted)"><span data-site="addressLine1"></span><br><span data-site="addressLine2"></span></span></div></div>
+        <div class="info-card" data-reveal="left" style="--d:.24s"><div class="ico" data-icon="clock"></div><div><small>Response time</small><b>Usually within one business day</b></div></div>
+      </div>
+
+      <div class="form-card" data-reveal="right">
+        <form data-lead-form data-source="contact-page" novalidate>
+          <h3 style="font-size:28px;margin-bottom:8px">Send us a message</h3>
+          <p style="color:var(--muted);margin-bottom:24px">Fields marked * are required.</p>
+          <div class="form-alert" role="alert"></div>
+          <div class="form-grid">
+            <div class="field"><label for="cname">Full name *</label><input id="cname" name="name" type="text" placeholder="Sarah Jenkins" autocomplete="name" required></div>
+            <div class="field"><label for="cemail">Email address *</label><input id="cemail" name="email" type="email" placeholder="sarah@example.com" autocomplete="email" required></div>
+            <div class="field"><label for="cphone">Phone number</label><input id="cphone" name="phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel"></div>
+            <div class="field"><label for="cservice">Topic</label>
+              <select id="cservice" name="service"><option>General enquiry</option><option>Internet plans</option><option>Cable TV</option><option>Bundle Plan (Internet + TV)</option><option>Digital Voice</option><option>Business connectivity</option><option>Support / existing customer</option></select></div>
+            <div class="field full"><label for="cmsg">Your message *</label><textarea id="cmsg" name="message" placeholder="Tell us what you need…" required maxlength="3000"></textarea></div>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="full"><button class="btn btn-primary btn-block" type="submit"><span class="spinner"></span><span class="btn-label">Send message</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/></svg></button></div>
+          </div>
+          <p class="form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="3"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>We only use your details to reply to this enquiry.</p>
+        </form>
+        <div class="success-pane">
+          <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Message sent!</h3>
+          <p>Thanks for reaching out — we've received your message and will be in touch soon.</p>
+          <button class="btn btn-ghost again" type="button">Send another message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="/js/site-config.js"></script>
+<script src="/js/cursor.js" defer></script>
+<script src="/js/fx.js" defer></script>
+<script src="/js/main.js"></script>
+<script src="/js/pages.js"></script>
+<script src="/js/forms.js"></script>
+<script src="/js/advisor.js"></script>
+<script>
+document.addEventListener('chrome:ready', function () {
+  var t = new URLSearchParams(location.search).get('topic');
+  if (t === 'business') { document.getElementById('cservice').value = 'Business connectivity'; document.getElementById('cmsg').placeholder = 'Tell us about your business: locations, headcount, uptime needs…'; }
+});
+</script>
+</body>
+</html>
