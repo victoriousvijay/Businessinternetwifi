@@ -14,16 +14,6 @@
     });
   });
 
-  /* ---------- count-up for hero / landing stat numbers ---------- */
-  document.querySelectorAll('.hero-stats .stat b, .lp-stats b').forEach((b) => {
-    const m = /^(\$?)(\d[\d,]*\.?\d*)(.*)$/.exec(b.textContent.trim());
-    if (!m || /^[\d\/]/.test(m[3]) || m[3].includes('/')) return;
-    const n = parseFloat(m[2].replace(/,/g, ''));
-    if (!n) return;
-    b.setAttribute('data-count', String(n));
-    if (m[1]) b.setAttribute('data-prefix', m[1]);
-    if (m[3]) b.setAttribute('data-suffix', m[3]);
-  });
 
   /* safety net: never leave content hidden if the observer is slow to fire */
   window.addEventListener('load', () => setTimeout(() => {
@@ -61,7 +51,7 @@
 
   /* ---------- gentle 3D tilt on cards (mouse devices) ---------- */
   if (!fine) return;
-  const SEL = '.fcard, .plan, .step-card, .hl-card, .info-card';
+  const SEL = '.fcard, .plan, .step-card, .info-card';
   let cur = null;
   const reset = (el) => { el.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s, border-color 0.2s'; el.style.transform = ''; };
   document.addEventListener('mousemove', (e) => {

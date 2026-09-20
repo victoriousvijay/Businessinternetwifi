@@ -29,8 +29,8 @@
       </div>
       <span class="plan-tag">${tag}</span>
       <ul>${p.perks.map((t) => `<li>${icon('check')}<span>${t}</span></li>`).join('')}</ul>
-      <a class="btn ${p.featured ? 'btn-primary' : 'btn-ghost'} btn-block" href="/availability?plan=${p.id}">
-        <span class="btn-label">Select Advisor Quote</span>${icon('arrow', 'arrow')}
+      <a class="btn ${p.featured ? 'btn-primary' : 'btn-ghost'} btn-block" href="tel:${S.phoneHref}">
+        ${icon('phone')}<span class="btn-label">Call now</span>
       </a>
     </article>`;
   }

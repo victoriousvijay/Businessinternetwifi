@@ -13,25 +13,6 @@ main > section.lp-hero { position: relative; overflow: hidden; background: #0a2f
 .lp-hero .btn-ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.35); }
 .lp-hero .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.6); }
 
-/* ---------- 3D cursor ---------- */
-.cursor-stage { position: fixed; inset: 0; z-index: 10000; pointer-events: none; --c: #1a4fd6; --c2: #2f6bf2; }
-.cursor-stage.on-dark { --c: #ffffff; --c2: #ffffff; }
-.cursor-ring, .cursor-orb, .cursor-pulse { position: fixed; top: 0; left: 0; pointer-events: none; will-change: transform; }
-.cursor-ring, .cursor-orb { opacity: 0; transition: opacity 0.25s; }
-.cursor-on .cursor-ring, .cursor-on .cursor-orb { opacity: 1; }
-.cursor-orb { width: 15px; height: 15px; margin: -7.5px 0 0 -7.5px; border-radius: 50%; background: var(--c2);
-  box-shadow: inset -2px -3px 5px rgba(0, 10, 70, 0.42), inset 2px 2px 3px rgba(255, 255, 255, 0.65), 0 6px 12px rgba(20, 60, 200, 0.35); }
-.on-dark .cursor-orb { box-shadow: inset -2px -3px 5px rgba(60, 90, 200, 0.5), inset 2px 2px 3px #fff, 0 6px 14px rgba(0, 0, 40, 0.5); }
-.cursor-ring { width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 1.5px solid var(--c); background: transparent; transition: opacity 0.25s, background-color 0.2s, border-color 0.2s; }
-.cursor-ring i { position: absolute; inset: 5px; border-radius: 50%; border: 1px solid var(--c); opacity: 0.35; }
-.cursor-ring.hover { background: color-mix(in srgb, var(--c) 14%, transparent); }
-.cursor-pulse { width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; border: 2px solid var(--c); animation: cpulse 0.55s ease-out forwards; }
-@keyframes cpulse { from { opacity: 0.7; transform: scale(0.5); } to { opacity: 0; transform: scale(1.9); } }
-@media (hover: hover) and (pointer: fine) {
-  html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor label, html.has-cursor select, html.has-cursor summary, html.has-cursor input[type='range'], html.has-cursor .faq-q { cursor: none; }
-  html.has-cursor input:not([type='range']):not([type='checkbox']):not([type='radio']), html.has-cursor textarea { cursor: text; }
-}
-
 /* ---------- landing pages ---------- */
 .lp-hero { padding: calc(var(--header-h) + 64px) 0 72px; }
 .lp-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
@@ -349,3 +330,52 @@ main > section.hero, main > section.lp-hero {
   .hero-links { margin-top: 32px; gap: 12px; }
   .hero > .container:last-child { margin-top: 20px; }
 }
+
+/* ---------- static banners ---------- */
+.page-hero::before, .page-hero::after { animation: none; }
+
+/* ==========================================================================
+   fiber-internet page skin: warm peach / orange / blue / green palette
+   ========================================================================== */
+body[data-skin='warm'] {
+  --primary: #0075a3; --primary-hover: #005f85; --primary-soft: #e2f1f7; --navy: #0075a3; --on-primary: #ffffff;
+  --bg-alt: #f2f2f2; --text: #303030; --muted: #5b5b5f; --border: #e3e3e3; --border-strong: #cfcfcf;
+  --font-head: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif; --font-body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
+}
+body[data-skin='warm'] .site-header { background: #57585c; border-bottom-color: #57585c; }
+body[data-skin='warm'] .logo-text b { color: #fff; } body[data-skin='warm'] .logo-text small { color: #d6d6d9; }
+body[data-skin='warm'] .site-header .btn-primary { background: #d0df00; color: #303030; }
+body[data-skin='warm'] .site-header .btn-primary:hover { background: #dcec1c; }
+body[data-skin='warm'] .promo-bar { margin-top: var(--header-h); background: #509e2f; color: #fff; text-align: center; padding: 12px 16px; font-weight: 600; font-size: 15px; line-height: 1.4; }
+body[data-skin='warm'] .promo-bar a { color: #fff; text-decoration: underline; }
+body[data-skin='warm'] main > section.lp-hero { background: #faecdd; color: #303030; padding-top: 56px; }
+body[data-skin='warm'] .lp-hero::before { display: none; }
+body[data-skin='warm'] .lp-hero h1 { color: #303030; }
+body[data-skin='warm'] .lp-hero .grad-text { color: #e98012; }
+body[data-skin='warm'] .lp-hero .lp-lead, body[data-skin='warm'] .lp-note { color: #4a4a4e; }
+body[data-skin='warm'] .lp-badge { border-color: #e98012; color: #b85f00; background: rgba(233, 128, 18, 0.08); }
+body[data-skin='warm'] .lp-checks li { color: #303030; } body[data-skin='warm'] .lp-checks svg { color: #e98012; }
+body[data-skin='warm'] .lp-hero .btn-primary { background: #0075a3; color: #fff; } body[data-skin='warm'] .lp-hero .btn-primary:hover { background: #005f85; }
+body[data-skin='warm'] .lp-hero .btn-ghost { background: transparent; color: #303030; border-color: #57585c; }
+body[data-skin='warm'] .lp-hero .btn-ghost:hover { background: rgba(0, 0, 0, 0.05); border-color: #303030; }
+body[data-skin='warm'] .tier-card { background: #fff; border: 1px solid #ecd9c6; color: #303030; box-shadow: 0 10px 30px rgba(120, 80, 30, 0.10); }
+body[data-skin='warm'] .tier-card h3, body[data-skin='warm'] .tier-sub, body[data-skin='warm'] .tier-price span, body[data-skin='warm'] .tier-speed small { color: #5b5b5f; }
+body[data-skin='warm'] .tier-tabs button { border-color: #dccdbd; color: #303030; } body[data-skin='warm'] .tier-tabs button:hover { border-color: #e98012; }
+body[data-skin='warm'] .tier-tabs button.on { background: #e98012; border-color: #e98012; color: #fff; }
+body[data-skin='warm'] .tier-price { border-top-color: #eadfd2; }
+body[data-skin='warm'] .lp-stats { background: #fff; border-color: #ecd9c6; }
+body[data-skin='warm'] .lp-stats div + div { border-left-color: #eadfd2; }
+body[data-skin='warm'] .lp-stats b { color: #0075a3; } body[data-skin='warm'] .lp-stats span { color: #5b5b5f; }
+body[data-skin='warm'] .plan .ribbon { background: #e98012; color: #fff; }
+body[data-skin='warm'] .plan-tag { background: #e6f2dc; color: #3f7a24; }
+body[data-skin='warm'] .big-ico { color: #e98012; }
+body[data-skin='warm'] .step-card .n { background: #e98012; }
+body[data-skin='warm'] .site-footer { background: #3f4044; border-top-color: #57585c; }
+body[data-skin='warm'] .callbar .btn-primary { background: #d0df00; color: #303030; }
+
+/* legal pages */
+.prose .updated { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+.prose p b, .prose li b { color: var(--text); }
+.prose h2 { font-size: 21px; margin: 34px 0 10px; }
+.prose ul { margin: 0 0 14px; }
